@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>生成二维码</title>
+</head>
+<body>
+	<div id="qrcode-place"></div>
+	<script src="${ctxPath!}/res/js/jq/jquery.min.js"></script>
+    <script src="${ctxPath!}/res/js/jq/jquery.qrcode.min.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			// 加载qrcode
+			$('#qrcode-place').qrcode({
+				'width': 200,
+				'height': 200,
+				'text': 'http://${localIp!}/${ctxPath!}'
+			});
+		});
+	</script>
+</body>
+</html>

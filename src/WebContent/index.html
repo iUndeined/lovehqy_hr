@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>一个有腔调的系统</title>
+    <link rel="stylesheet" href="${ctxPath!}/res/css/weui/weui.min.css"/>
+    <link rel="stylesheet" href="${ctxPath!}/res/css/weui/example.css"/>
+    <link rel="stylesheet" href="${ctxPath!}/res/css/commons/style.css"/>
+</head>
+<body ontouchstart>
+    <div class="container" id="container"></div>
+    <script type="text/html" id="tpl_home">
+	<div class="hd">
+		<h1 class="page_title">哗哥烧卤</h1>
+		<p class="page_desc">咚咚为颖颖量身定制</p>
+	</div>
+	<div class="bd">
+		<div class="weui_grids">
+			<a href="#/judgement" class="weui_grid">
+				<div class="weui_grid_icon">
+					<i class="icon icon-time-attendance"></i>
+				</div>
+				<p class="weui_grid_label">
+					考勤
+				</p>
+			</a>
+			<a href="#/scheduling" class="weui_grid">
+				<div class="weui_grid_icon">
+					<i class="icon icon-scheduling"></i>
+				</div>
+				<p class="weui_grid_label">
+					排班
+				</p>
+			</a>
+			<a href="#/purchase" class="weui_grid">
+				<div class="weui_grid_icon">
+					<i class="icon icon-shopper"></i>
+				</div>
+				<p class="weui_grid_label">
+					采购
+				</p>
+			</a>
+			<a href="#/employee" class="weui_grid">
+				<div class="weui_grid_icon">
+					<i class="icon icon-man"></i>
+				</div>
+				<p class="weui_grid_label">
+					员工
+				</p>
+			</a>
+			<a href="#/report" class="weui_grid">
+				<div class="weui_grid_icon">
+					<i class="icon icon-report"></i>
+				</div>
+				<p class="weui_grid_label">
+					报表
+				</p>
+			</a>
+			<a href="javascript:;" class="weui_grid" id="btn-qrcode-dialog">
+				<div class="weui_grid_icon">
+					<i class="icon icon-qrcode"></i>
+				</div>
+				<p class="weui_grid_label">
+					手机访问
+				</p>
+			</a>
+		</div>
+	</div>
+	</script>
+	
+	<script type="text/html" id="tpl_judgement">
+	<div class="hd">
+		<h1 class="page_title">${date(), 'yyyy-MM-dd'}考勤</h1>->
+	</div>
+	</script>
+    
+    <script type="text/html" id="tpl_employee">
+	<div class="hd">
+		<h1 class="page_title">员工管理</h1>
+	</div>
+	<div class="bd">
+		<div class="weui_grids">
+			<a href="#/employee_add" class="weui_grid">
+				<div class="weui_grid_icon">
+					<i class="icon icon-add"></i>
+				</div>
+				<p class="weui_grid_label">
+					添加
+				</p>
+			</a>
+			<a href="#/employee_list" class="weui_grid">
+				<div class="weui_grid_icon">
+					<i class="icon icon-list"></i>
+				</div>
+				<p class="weui_grid_label">
+					列表
+				</p>
+			</a>
+		</div>
+	</div>
+	</script>
+    
+    <script type="text/html" id="tpl_employee_add">
+	<div class="hd">
+		<h1 class="page_title">新增雇员</h1>
+	</div>
+	<form action="${ctxPath!}/employee/join" method="post">
+		<input type="hidden" name="back_to_view" value="/#/employee_add" />
+		<div class="weui_cells weui_cells_form">
+			<div class="weui_cell">
+				<div class="weui_cell_hd"><label class="weui_label">姓名</label></div>
+				<div class="weui_cell_bd weui_cell_primary">
+					<input class="weui_input" name="e.name" type="text" placeholder="请输入雇员姓名" autocomplete="off">
+				</div>
+			</div>
+			<div class="weui_cell">
+				<div class="weui_cell_hd"><label class="weui_label">入职时间</label></div>
+				<div class="weui_cell_bd weui_cell_primary">
+					<input class="weui_input" name="e.join_date" type="date" placeholder="雇员入职时间，非必填" autocomplete="off">
+				</div>
+			</div>
+		</div>
+		<div class="weui_btn_area">
+			<button class="weui_btn weui_btn_primary" type="submit">确定</button>
+		</div>
+	</form>
+	</script>
+    
+    <!-- 二维码弹出窗 -->
+    <div class="weui_dialog_alert" id="dialog-qrcode" style="display: none;">
+		<div class="weui_mask"></div>
+		<div class="weui_dialog">
+			<div class="weui_dialog_hd"><strong class="weui_dialog_title">手机使用本系统</strong></div>
+			<div class="weui_dialog_bd">
+            	<p>使用手机浏览器扫一扫</p>
+                <p>
+                	<iframe src="qrcode" frameborder="0" height="230" width="230"></iframe>
+                </p>
+            </div>
+			<div class="weui_dialog_ft">
+				<a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+			</div>
+		</div>
+	</div>
+    
+    <script src="${ctxPath!}/res/js/zepto.min.js"></script>
+    <script src="${ctxPath!}/res/js/router.min.js"></script>
+    <script src="${ctxPath!}/res/js/home_render.js"></script>
+</body>
+</html>

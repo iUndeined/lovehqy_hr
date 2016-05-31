@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+.icon {
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+/** 考勤 */
+.icon.icon-time-attendance {
+	background-image: url(images/icon_time_attendance.png);
+}
+
+/** 排班 */
+.icon.icon-scheduling {
+	background-image: url(images/icon_scheduling.png);
+}
+
+/** 员工 */
+.icon.icon-man {
+	background-image: url(images/icon_man.png);
+}
+
+/** 采购 */
+.icon.icon-shopper {
+	background-image: url(images/icon_shopper.png);
+}
+
+/** 报表 */
+.icon.icon-report {
+	background-image: url(images/icon_report.png);
+}
+
+/** 二维码 */
+.icon.icon-qrcode {
+	background-image: url(images/icon_qr_code.png);
+}
+
+/** 添加 */
+.icon.icon-add {
+	background-image: url(images/icon_add.png);
+}
+
+/** 列表 */
+.icon.icon-list {
+	background-image: url(images/icon_list.png);
+}

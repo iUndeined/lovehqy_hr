@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+<div class="hd">
+	<h1 class="page_title">雇员列表</h1>
+</div>
+<div class="weui_cells">
+<%
+	for (var i in list!) {
+%>
+	<div class="weui_cell">
+		<div class="weui_cell_bd weui_cell_primary">
+			<p>${i.name!}</p>
+		</div>
+		<div class="weui_cell_ft">${i.join_date!'未填写日期', 'yyyy-MM-dd'}</div>
+	</div>
+<%
+	}
+%>
+</div>
