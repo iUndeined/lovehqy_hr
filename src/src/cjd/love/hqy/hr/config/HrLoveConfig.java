@@ -36,6 +36,15 @@ public class HrLoveConfig extends JFinalConfig {
 	private final String JDBC_URL = "jdbc:mysql://127.0.0.1:3306/lovehqy_hr";
 	private final String JDBC_USER = "root";
 	private final String JDBC_PSWD = "root";
+	/**
+	 * 部署到公共云平台
+	 * 平台地址：http://www.mopaas.com
+	 */
+	/*
+	private final String JDBC_URL = "jdbc:mysql://192.168.1.11:3306/d920a11c9e07b4628b0a4fb8f225d0e0a";
+	private final String JDBC_USER = "831d01ad-ae5d";
+	private final String JDBC_PSWD = "a32df4cd-9d14";
+	*/
 	
 	@Override
 	public void configPlugin(Plugins me) {
