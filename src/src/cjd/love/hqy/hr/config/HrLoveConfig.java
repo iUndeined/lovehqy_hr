@@ -9,11 +9,11 @@ import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
-
 import cjd.love.hqy.hr.intor.ControllerInter;
 import cjd.love.hqy.hr.pojo._MappingKit;
 import cjd.love.hqy.hr.web.IndexController;
 import cjd.love.hqy.hr.web.employee.EmployeeController;
+import cjd.love.hqy.hr.web.scheduling.SchedulingController;
 
 public class HrLoveConfig extends JFinalConfig {
 	
@@ -50,6 +50,7 @@ public class HrLoveConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class);
 		me.add("/employee", EmployeeController.class);
+		me.add("/scheduling", SchedulingController.class);
 	}
 	
 }

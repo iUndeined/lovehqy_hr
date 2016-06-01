@@ -27,7 +27,7 @@ $(function () {
 		url: '/scheduling',
         className: 'scheduling',
         render: function () {
-            return $('#tpl_scheduling').html();
+            return ajaxHtml('scheduling/builder');
         }
     }
     
