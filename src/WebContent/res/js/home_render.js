@@ -23,6 +23,14 @@ $(function () {
         }
     }
 	
+    , scheduling = {
+		url: '/scheduling',
+        className: 'scheduling',
+        render: function () {
+            return $('#tpl_scheduling').html();
+        }
+    }
+    
 	,	employee = {
 		url: '/employee',
         className: 'employee',
@@ -49,6 +57,7 @@ $(function () {
 	
 	router.push(home)
 		.push(judgement)
+		.push(scheduling)
 		.push(employee)
 		.push(employeeAdd)
 		.push(employeeList)
