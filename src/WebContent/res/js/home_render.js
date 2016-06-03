@@ -111,5 +111,9 @@ function initEvent(){
 	// 关闭 dialog事件
 	.on('click', '.weui_btn_dialog', function(){
 		$(this).parents('.weui_dialog_alert').hide();
+	})
+	// 打开雇员选择
+	.on('click', '.employee-select', function(){
+		$('#dialog-employee-select').show();
 	});
 }
