@@ -15,6 +15,7 @@ create table T_EMPLOYEE
    name                 varchar(8),
    join_date            datetime,
    created_date         datetime,
+   status               int default 1 comment '{1: 在职, 0: 离职}',
    primary key (id)
 );
 

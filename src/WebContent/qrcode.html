@@ -7,6 +7,10 @@
 <body>
 	<div id="qrcode-place"></div>
 	
+	<script type="text/javascript">
+		window.ctxPath = '${ctxPath!}';
+	</script>
+	
 	<script src="${ctxPath!}/res/js/address-installed.js"></script>
 	<script src="${ctxPath!}/res/js/jq/jquery.min.js"></script>
     <script src="${ctxPath!}/res/js/jq/jquery.qrcode.min.js"></script>
@@ -19,7 +23,7 @@
 			$('#qrcode-place').qrcode({
 				'width': 200,
 				'height': 200,
-				'text': ctx ? addrs + ctx : ctxPath
+				'text': ctx ? addrs + ctx : 'http://' + ctxPath + '/'
 			});
 		});
 	</script>

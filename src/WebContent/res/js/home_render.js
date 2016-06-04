@@ -27,7 +27,7 @@ $(function () {
 		url: '/scheduling',
         className: 'scheduling',
         render: function () {
-            return ajaxHtml(ctxPath + '/scheduling/builder');
+            return ajaxHtml(ctxPathFixed + '/scheduling/builder');
         }
     }
     
@@ -51,7 +51,7 @@ $(function () {
 		url: '/employee_list',
         className: 'employee_list',
         render: function () {
-            return ajaxHtml(ctxPath + '/employee/list');
+            return ajaxHtml(ctxPathFixed + '/employee/list');
         }
 	};
 	
