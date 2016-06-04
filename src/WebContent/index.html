@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="${ctxPath!}/res/css/weui/weui.min.css"/>
     <link rel="stylesheet" href="${ctxPath!}/res/css/weui/example.css"/>
     <link rel="stylesheet" href="${ctxPath!}/res/css/commons/style.css"/>
+    <style type="text/css">
+    	.employee_list {
+    		height: 100%;
+    	}
+    </style>
 </head>
 <body ontouchstart>
     <div class="container" id="container"></div>
@@ -77,7 +82,7 @@
     
     <script type="text/html" id="tpl_employee">
 	<div class="hd">
-		<h1 class="page_title">员工管理</h1>
+		<h1 class="page_title">雇员管理</h1>
 	</div>
 	<div class="bd">
 		<div class="weui_grids">
@@ -86,7 +91,7 @@
 					<i class="icon icon-add"></i>
 				</div>
 				<p class="weui_grid_label">
-					添加
+					新增雇员
 				</p>
 			</a>
 			<a href="#/employee_list" class="weui_grid">
@@ -94,7 +99,15 @@
 					<i class="icon icon-list"></i>
 				</div>
 				<p class="weui_grid_label">
-					列表
+					在职列表
+				</p>
+			</a>
+			<a href="#/employee_list_offline" class="weui_grid">
+				<div class="weui_grid_icon">
+					<i class="icon icon-list"></i>
+				</div>
+				<p class="weui_grid_label">
+					离职列表
 				</p>
 			</a>
 		</div>
