@@ -17,12 +17,28 @@
 			    </div>
 			    <div class="weui_opr_area">
 			        <p class="weui_btn_area">
-			            <a href="${ctxPath!}${back_to_view!}" class="weui_btn weui_btn_primary">继续操作</a>
-			            <a href="${ctxPath!}" class="weui_btn weui_btn_default">返回主页</a>
+			            <a href="javascript:;" id="btn-continue" class="weui_btn weui_btn_primary">继续操作</a>
+			            <a href="javascript:;" id="btn-quit" class="weui_btn weui_btn_default">返回主页</a>
 			        </p>
 			    </div>
 			</div>
 		</div>
 	</div>
+    
+    <script src="${ctxPath!}/res/js/address-installed.js"></script>
+    <script src="${ctxPath!}/res/js/zepto.min.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			var backToView = '${back_to_view!}';
+			
+			$('#btn-continue').on('click', function(){
+				window.location.href = ctxPath + backToView;
+			});
+			
+			$('#btn-quit').on('click', function(){
+				window.location.href = ctxPath;
+			});
+		});
+	</script>
 </body>
 </html>
