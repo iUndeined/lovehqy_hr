@@ -7,7 +7,7 @@ public final class S {
 		/**
 		 * 员工状态 离职
 		 */
-		public final static int STATUS_GONE = 0;
+		public final static int STATUS_FIRE = 0;
 		
 		/**
 		 * 员工状态 在职
