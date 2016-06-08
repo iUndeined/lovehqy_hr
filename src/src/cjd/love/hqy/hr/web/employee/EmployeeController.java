@@ -19,7 +19,10 @@ public class EmployeeController extends HrLoveController {
 		this.success();
 	}
 	
-	public void gone(){
+	/**
+	 * 解雇一波学员
+	 */
+	public void fire(){
 		// 获取 雇员id
 		Integer emplId = this.getParaToInt("id");
 		if (emplId == null) {
@@ -28,7 +31,7 @@ public class EmployeeController extends HrLoveController {
 		}
 		// 更新 雇员状态
 		Employee employee = Employee.dao.findById(emplId);
-		employee.setStatus(S.Employee.STATUS_GONE);
+		employee.setStatus(S.Employee.STATUS_FIRE);
 		employee.update();
 		
 		// 返回成功
@@ -36,7 +39,7 @@ public class EmployeeController extends HrLoveController {
 	}
 	
 	public void list(){
-		List<Employee> list = Employee.dao.find("select * from t_employee ");
+		List<Employee> list = Employee.dao.find("select * from t_employee as i where i.status = ? ", S.Employee.STATUS_WORK);
 		this.setAttr("list", list);
 		this.render("/views/employee/list.html");
 	}
