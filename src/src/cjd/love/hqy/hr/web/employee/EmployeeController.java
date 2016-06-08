@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import cjd.love.hqy.hr.pojo.Employee;
 import cjd.love.hqy.hr.pojo.S;
+import cjd.love.hqy.hr.service.employye.EmployyeService;
 import cjd.love.hqy.hr.ext.HrLoveController;
 import cjd.love.hqy.hr.model.commons.AjaxResult;
 
@@ -39,8 +40,8 @@ public class EmployeeController extends HrLoveController {
 	}
 	
 	public void list(){
-		List<Employee> list = Employee.dao.find("select * from t_employee as i where i.status = ? ", S.Employee.STATUS_WORK);
-		this.setAttr("list", list);
+		// 查找 在职员工
+		this.setAttr("list", EmployyeService.me.list(S.Employee.List.WORK));
 		this.render("/views/employee/list.html");
 	}
 	
