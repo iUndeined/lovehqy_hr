@@ -112,8 +112,58 @@ function initEvent(){
 	.on('click', '.weui_btn_dialog', function(){
 		$(this).parents('.weui_dialog_alert').hide();
 	})
+	// 关闭 confirm事件
+	.on('click', '.confirm-cancel', function(){
+		$(this).parents('.weui_dialog_confirm').hide();
+	})
 	// 打开雇员选择
 	.on('click', '.employee-select', function(){
 		$('#dialog-employee-select').show();
+	})
+	// 解雇雇员事件
+	.on('click', '.employee_item', function(){
+		var $this = $(this)
+		,	$confirm = $('#dialog-employye-fire')
+//		,	$loadding = $('#loading-toast')
+		,	id = $this.attr('data-id')
+		,	name = $this.attr('data-name');
+		
+		// 先显示确认窗口先
+		$confirm.show();
+		
+		$('#confirm-fire-employee').one('click', function(){
+			$confirm.hide();
+			// 加载窗口 五秒后消失
+			var loading = new UiLoading();
+			
+			$.get(ctxPathFixed + '/employee/fire', {'id': id}, function(result){
+				loading.hide();
+				if (!result.success) {
+					alert('解雇失败系统不受');
+				} else {
+					window.location.reload(true);
+				}
+			}, 'json');
+		});
 	});
 }
+
+function UiLoading(delay){
+	var self = 
+	// 获取 加载窗口
+	this.$loading = $('#loading-toast');
+	// 显示 加载窗口
+	this.$loading.show();
+	
+	if (delay && !isNaN(delay)) {
+		window.setTimeout(function(){
+			self.hide();
+		}, delay);
+	}
+}
+
+UiLoading.prototype = {
+	'hide': function(){
+		this.$loading.hide();
+	}
+};
