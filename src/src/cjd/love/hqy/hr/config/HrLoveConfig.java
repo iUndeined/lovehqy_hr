@@ -14,6 +14,8 @@ import cjd.love.hqy.hr.pojo._MappingKit;
 import cjd.love.hqy.hr.web.IndexController;
 import cjd.love.hqy.hr.web.employee.EmployeeController;
 import cjd.love.hqy.hr.web.scheduling.SchedulingController;
+import me.cjd.sqlbuilder.core.SqlBuilder;
+import me.cjd.sqlbuilder.engine.SqlBeetlEngine;
 
 public class HrLoveConfig extends JFinalConfig {
 	
@@ -22,6 +24,8 @@ public class HrLoveConfig extends JFinalConfig {
 		me.setDevMode(true);
 		// 集成 Beetl模板引擎
 		me.setMainRenderFactory(new BeetlRenderFactory());
+		// 初始化 外部sql工具
+		SqlBuilder.setEngine(new SqlBeetlEngine());
 	}
 
 	@Override
