@@ -1,6 +1,9 @@
 package cjd.love.hqy.hr.model.scheduling;
 
 import java.util.Date;
+import java.util.List;
+
+import cjd.love.hqy.hr.pojo.WorkScheduling;
 
 public class WeekDays {
 	
@@ -12,6 +15,8 @@ public class WeekDays {
 	private int day;
 	/** 排班 星期几 */
 	private String week;
+	/** 排班 已经排有的数据 */
+	private List<WorkScheduling> datas;
 	
 	public WeekDays(Date date, int month, int day, String week) {
 		super();
@@ -53,4 +58,12 @@ public class WeekDays {
 		this.week = week;
 	}
 
+	public List<WorkScheduling> getDatas() {
+		return datas;
+	}
+
+	public void setDatas(List<WorkScheduling> datas) {
+		this.datas = datas;
+	}
+	
 }

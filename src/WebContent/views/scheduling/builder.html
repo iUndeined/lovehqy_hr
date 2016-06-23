@@ -5,13 +5,21 @@
 <%for (var i in list!) {%>
 <div class="weui_cells_title">${i.date!, 'MM月dd号'} ${i.week!}</div>
 <div class="weui_cells weui_cells_access">
-	<a href="javascript:;" class="weui_cell employee-select">
+	<%for (var z in i.datas) {%>
+	<a href="javascript:;" class="weui_cell employee-sch-select" data-uid="${z.id!}" data-name="${z.workManName!}" data-date="${i.date!, 'yyyy-MM-dd'}" data-str="${i.date!, 'MM月dd号'} ${i.week!}">
         <div class="weui_cell_bd weui_cell_primary">
-            <p>选择雇员</p>
+            <p class="sch-name">${z.workManName!}</p>
         </div>
         <div class="weui_cell_ft"></div>
     </a>
-    <a href="javascript:;" class="weui_cell">
+	<%}%>
+	<a href="javascript:;" class="weui_cell employee-sch-select" data-date="${i.date!, 'yyyy-MM-dd'}" data-str="${i.date!, 'MM月dd号'} ${i.week!}">
+        <div class="weui_cell_bd weui_cell_primary">
+            <p class="sch-name">选择雇员</p>
+        </div>
+        <div class="weui_cell_ft"></div>
+    </a>
+    <a href="javascript:;" class="weui_cell employee-sch-add" data-date="${i.date!, 'yyyy-MM-dd'}" data-str="${i.date!, 'MM月dd号'} ${i.week!}">
         <div class="weui_cell_bd weui_cell_primary">
             <p>新增雇员</p>
         </div>
@@ -20,40 +28,46 @@
 </div>
 <%}%>
 <div class="weui_btn_area">
-	<a class="weui_btn weui_btn_primary" href="javascript:;">确认排班</a>
+	<a class="weui_btn weui_btn_primary" href="javascript:;" id="btn-sch-shoot">确认排班</a>
 </div>
 
-<div class="weui_dialog_alert" id="dialog-employee-select" style="display: none;">
+<div class="weui_dialog_alert wrap-cancel" id="dialog-employee-select" style="display: none;">
     <div class="weui_mask"></div>
     <div class="weui_dialog">
         <div class="weui_dialog_hd"><strong class="weui_dialog_title">选择雇员</strong></div>
-        <div class="weui_dialog_bd">选择一位在 <name>06月07号 星期二</name> 工作的雇员</div>
+        <div class="weui_dialog_bd">选择一位在 <name id="dialog-work-str">06月07号 星期二</name> 工作的雇员</div>
         <div class="weui_cells weui_cells_checkbox dialog_roll" id="empl-areas" style="margin-top: 0px;">
-        	<!--
-            <label for="x11" class="weui_cell weui_check_label">
-	            <div class="weui_cell_bd weui_cell_primary">
-	                <p>陈剑冬</p>
-	            </div>
-	            <div class="weui_cell_ft">
-	                <input type="radio" id="x11" name="radio1" class="weui_check">
-	                <span class="weui_icon_checked"></span>
-	            </div>
-	        </label>
-        	<label for="x12" class="weui_cell weui_check_label">
-	            <div class="weui_cell_bd weui_cell_primary">
-	                <p>黄倩颖</p>
-	            </div>
-	            <div class="weui_cell_ft">
-	                <input type="radio" id="x12" name="radio1" class="weui_check">
-	                <span class="weui_icon_checked"></span>
-	            </div>
-	        </label>
-            -->
-            
-            <div class="weui_dialog_bd">快点去首页->雇员->添加那里加点人</div>
+            <%for (var i in emplL!) {%>
+            	<label for="empl-${i.id!}" class="weui_cell weui_check_label">
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <p>${i.name!}</p>
+                    </div>
+                    <div class="weui_cell_ft">
+                        <input class="weui_check sch-chooce-radio" type="radio" id="empl-${i.id!}" name="empl-radio" value="${i.id!}" data-name="${i.name!}">
+                        <span class="weui_icon_checked"></span>
+                    </div>
+                </label>
+            <%} elsefor {%>
+           	<div class="weui_dialog_bd">快点去首页->雇员->添加那里加点人</div>	
+            <%}%>
         </div>
-        <div class="weui_dialog_ft">
-            <a class="weui_btn_dialog primary" href="javascript:;">确定</a>
+       <div class="weui_dialog_ft">
+            <a class="weui_btn_dialog default btn-cancel" href="javascript:;">取消</a>
+            <a class="weui_btn_dialog primary" id="confirm-sch-employee" href="javascript:;">确定</a>
         </div>
     </div>
 </div>
+
+<form id="employee-sch-form" action="${ctxPath!}/scheduling/shoot" method="post">
+	<input type="hidden" name="back_to_view" value="/#/scheduling" />
+	<input type="hidden" name="saves" id="employee-sch-datas" />
+</form>
+
+<script type="text/html" id="employee-sch-item-template">
+<a href="javascript:;" class="weui_cell employee-sch-select">
+	<div class="weui_cell_bd weui_cell_primary">
+		<p class="sch-name">选择雇员</p>
+	</div>
+	<div class="weui_cell_ft"></div>
+</a>
+</script>

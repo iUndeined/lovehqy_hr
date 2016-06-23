@@ -15,8 +15,7 @@ public class DateUtil {
 	
 	public Date get(int month, int day){
 		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.MONTH, month);
-		cal.set(Calendar.DATE, day);
+		cal.set(cal.get(Calendar.YEAR), month, day, 0, 0, 0);
 		return cal.getTime();
 	}
 	
