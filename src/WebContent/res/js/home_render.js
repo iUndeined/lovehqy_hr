@@ -19,7 +19,7 @@ $(function () {
         url: '/judgement',
         className: 'judgement',
         render: function () {
-            return $('#tpl_judgement').html();
+            return ajaxHtml(ctxPathFixed + '/judgement');
         }
     }
 	
@@ -198,9 +198,13 @@ function eventSchFinalShoot(){
 		var self = $(this)
 		// 只有已经保存过的才会有这个属性
 		,	uid = self.attr('data-uid')
+		
+		// 获取 正常所需的值们
 		,	id = self.attr('data-id')
 		,	name = self.attr('data-name')
 		,	date = self.attr('data-date')
+		
+		// 声明 数据对象
 		,	data = {
 			'employeeId': id
 		,	'employeeName': name
@@ -215,10 +219,6 @@ function eventSchFinalShoot(){
         datas.push(data);
     });
 	
-	// 隐藏 加载窗口
-//	loading.hide();
-	
-	// .replace(/\"/g, "'")
 	// 设置 保存数据
 	$('#employee-sch-datas').val(JSON.stringify(datas));
 	// 提交 表单

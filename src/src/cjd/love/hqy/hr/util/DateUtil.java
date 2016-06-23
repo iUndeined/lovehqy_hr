@@ -13,6 +13,11 @@ public class DateUtil {
 	
 	public final static DateUtil me = new DateUtil();
 	
+	public Date get(){
+		Calendar cal = Calendar.getInstance();
+		return this.get(cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
+	}
+	
 	public Date get(int month, int day){
 		Calendar cal = Calendar.getInstance();
 		cal.set(cal.get(Calendar.YEAR), month, day, 0, 0, 0);

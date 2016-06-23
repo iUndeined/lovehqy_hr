@@ -1,0 +1,38 @@
+<div class="hd">
+	<h1 class="page_title">${date(), 'yyyy-MM-dd'}考勤</h1>
+</div>
+
+<div class="bd">
+	<%for (var i in schL!) {%>
+	<div class="weui_cells_title">${i.workManName!}</div>
+	<div class="weui_cells weui_cells_radio">
+        <label for="x_1_${i.id!}" class="weui_cell weui_check_label">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>到班</p>
+            </div>
+            <div class="weui_cell_ft">
+                <input class="weui_check" type="radio" id="x_1_${i.id!}" name="radio_${i.id!}" checked>
+                <span class="weui_icon_checked"></span>
+            </div>
+        </label>
+        <label for="x_2_${i.id!}" class="weui_cell weui_check_label">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>迟到</p>
+            </div>
+            <div class="weui_cell_ft">
+                <input class="weui_check" type="radio" id="x_2_${i.id!}" name="radio_${i.id!}">
+                <span class="weui_icon_checked"></span>
+            </div>
+        </label>
+    </div>
+	<%} elsefor {%>
+	<div class="weui_panel">
+		<div class="weui_panel_bd">
+	        <div class="weui_media_box weui_media_text">
+	            <h4 class="weui_media_title">并不需要考勤</h4>
+	            <p class="weui_media_desc">你都还没排班呐，没法儿考勤噢！！！</p>
+	        </div>
+	    </div>
+    </div>
+	<%}%>
+</div>

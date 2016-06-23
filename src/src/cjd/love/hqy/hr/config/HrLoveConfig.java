@@ -13,6 +13,7 @@ import cjd.love.hqy.hr.intor.ControllerInter;
 import cjd.love.hqy.hr.pojo._MappingKit;
 import cjd.love.hqy.hr.web.IndexController;
 import cjd.love.hqy.hr.web.employee.EmployeeController;
+import cjd.love.hqy.hr.web.judgement.JudgementController;
 import cjd.love.hqy.hr.web.scheduling.SchedulingController;
 import me.cjd.sqlbuilder.core.SqlBuilder;
 import me.cjd.sqlbuilder.engine.SqlBeetlEngine;
@@ -64,6 +65,7 @@ public class HrLoveConfig extends JFinalConfig {
 		me.add("/", IndexController.class);
 		me.add("/employee", EmployeeController.class);
 		me.add("/scheduling", SchedulingController.class);
+		me.add("/judgement", JudgementController.class);
 	}
 	
 }
