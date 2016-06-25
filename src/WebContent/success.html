@@ -29,24 +29,13 @@
     <script src="${ctxPath!}/res/js/zepto.min.js"></script>
     <script type="text/javascript">
 		$(function(){
-			var ctxPathFixed = '${ctxPath!}'
-			,	backToView = '${back_to_view!}';
+			var fBackStr = '${back_to_view!}'
+			,	fCtxPath = '${ctxPath!}'
+			,	fPrefix = fCtxPath ? fCtxPath : '/'
+			,	fBack = fBackStr ? fPrefix + fBackStr : fPrefix;
 			
-			// 继续的地址
-			var urlContinue = ''
-			,	urlQuit = '/';
-			
-			// 如果有项目名称则是局域网访问
-			if (ctxPathFixed) {
-				urlQuit += ctxPathFixed;
-			}
-			
-			// 地址
-			urlContinue = ctxPathFixed + backToView;
-			
-			// 改变值
-			$('#btn-continue').attr('href', urlContinue);
-			$('#btn-quit').attr('href', urlQuit);
+			$('#btn-continue').attr('href', fBack);
+			$('#btn-quit').attr('href', fPrefix);
 		});
 	</script>
 </body>
